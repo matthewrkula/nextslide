@@ -29,7 +29,7 @@
   display: inline-block;
   width: 250px;
   height: 250px;
-  margin: 20px;
+  margin-right: 20px;
   border: 1px solid gray;
 
   .overlay {
@@ -50,4 +50,10 @@
       opacity: 1.0;
     }
   }
+}
+
+.event-link:visited{
+  font-size: 1.3em;
+  color: black;
+  text-decoration: underline;
 }
