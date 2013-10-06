@@ -12,7 +12,7 @@ class SlidesController < ApplicationController
   def update
     @slide = @slideshow.slides.find(params[:id])
     if @slide.update_attributes(params[:slide])
-      redirect_to [@slideshow.event, @slideshow], notice: 'Updated slide successfully.'
+      redirect_to slideshow_slides_path(@slideshow), notice: 'Updated slide successfully.'
     else
       render :edit
     end
