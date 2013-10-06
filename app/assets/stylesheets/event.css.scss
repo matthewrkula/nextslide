@@ -11,7 +11,17 @@
 
 .event-details {
   float: left;
-  margin-left: 20px;
+  padding: 20px;
+  color: black;
+  height: auto;
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: black;
+  }
 }
 
 .event {

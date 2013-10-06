@@ -1,39 +1,42 @@
-body{
+body {
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.container{
+.container {
   padding: 15px;
 }
 
 
-#head{
+#head {
 
   height: 40px;
   background: #34495e;
   padding: 20px;
 
+  a {
+    color: white;
+  }
 
-  a:visited{
+  a:visited {
     color: white;
   }
   
-  img{
+  img {
     width: 300px;
     height: auto;
   }
 
-  ul{
+  ul {
     list-style:none;
     float: right;
     color: white;
     margin-top: 5px;
 
-    li{
+    li {
       float:left;
       margin-right: 50px;
       font-size: 1.3em;
@@ -43,13 +46,12 @@ a{
   }
 }
 
-.before-upload{
+.before-upload {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
   font-size: 1.2em;
-  //background: #27ae60;
   border-radius: 8px;
   input{
     width: 200px;
@@ -58,6 +60,6 @@ a{
 
 }
 
-.during-upload{
+.during-upload {
   display: none;
 }

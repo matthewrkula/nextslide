@@ -15,7 +15,10 @@
 
   <ul>
     <% @event.slideshows.each do |slideshow| %>
-      <li><%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %></li>
+      <li>
+        <%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %> - 
+        <%= link_to "Add Notes", slideshow_slides_path(slideshow) %>
+      </li>
     <% end %>
   </ul>
   <%= link_to 'Edit', edit_event_path(@event) %> |
