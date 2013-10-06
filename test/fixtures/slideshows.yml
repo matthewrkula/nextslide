@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  slide_num: 1
+  url: MyString
+
+two:
+  slide_num: 1
+  url: MyString

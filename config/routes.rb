@@ -1,4 +1,9 @@
 DepaulMitHacks::Application.routes.draw do
+
+  match '/upload', to: 'upload#upload'
+  match '/submit', to: 'upload#submit', via: 'post'
+
+  match '/slideshow/:id', to: 'slideshow#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

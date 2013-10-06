@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+#next-button {
+  margin-top: 100px;
+  background: green;
+  display: block;
+}
+
+#previous-button {
+  margin-top: 200px;
+  background: red;
+  display: block;
+}
