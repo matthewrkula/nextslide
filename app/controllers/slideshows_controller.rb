@@ -51,7 +51,7 @@ class SlideshowsController < ApplicationController
       @slideshow.save
       i = 0
       while (i < num_pages.to_i) do
-        ss.slides.create!({ slide_number: i + 1 })
+        @slideshow.slides.create!({ slide_number: i + 1 })
         i = i + 1
       end
       redirect_to event_slideshows_url(@event), notice: 'Created a slideshow successfully.'
