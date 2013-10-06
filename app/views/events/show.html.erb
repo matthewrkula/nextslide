@@ -10,6 +10,14 @@
   <%= @event.image %>
 </p>
 
+<%= link_to 'New SlideShow', new_event_slideshow_path(@event.id) %><br/><br/>
+
+<ul>
+  <% @event.slideshows.each do |slideshow| %>
+    <li><%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %></li>
+  <% end %>
+</ul>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
