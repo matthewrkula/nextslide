@@ -5,7 +5,6 @@ gem 'pusher'
 gem 'rest-client'
 gem 'jquery-rails'
 gem 'jbuilder'
-gem 'mini_magick'
 gem 'carrierwave'
 
 group :development do
