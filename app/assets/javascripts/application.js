@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require pusher_example
 //= require_tree .
 
 var init = function() {
