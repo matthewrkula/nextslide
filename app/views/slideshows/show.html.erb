@@ -118,6 +118,7 @@
 </script>
 
 <div id='slides-container'>
+
 	<% @slideshow.slide_num.times do |i| %>
     <div>
       <img src="https://docs.google.com/viewer?url=<%= "#{@slideshow.url}&a=bi&pagenumber=#{i+1}&w=1200" %>"/>

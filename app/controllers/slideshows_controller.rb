@@ -36,6 +36,12 @@ class SlideshowsController < ApplicationController
 		ss = Slideshow.new({url: url, slide_num: num_pages, event_id: event_id, name: name})
 		ss.save!
 
+    i = 0
+    while (i < num_pages.to_i) do
+      ss.slides.create!({ slide_number: i + 1 })
+      i = i + 1
+    end
+
     @slideshow = ss
 
 		respond_to do |format|

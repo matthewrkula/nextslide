@@ -1,0 +1,14 @@
+<h1>Edit Slide <%= @slide.slide_number %> Note</h1>
+
+
+<%= form_for([@slideshow, @slide]) do |f| %>
+  <div class='field'>
+    <%= f.label :note %>
+    <%= f.text_field :note %>
+  </div>
+  <div class='actions'>
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+<img src="https://docs.google.com/viewer?url=<%= "#{@slideshow.url}&a=bi&pagenumber=#{@slide.slide_number}&w=400" %>"/>
