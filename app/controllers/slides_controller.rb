@@ -2,7 +2,7 @@ class SlidesController < ApplicationController
   before_filter :setup_slideshow
 
   def index
-    @slides = @slideshow.slides
+    @slides = @slideshow.slides.order('slide_number')
   end
 
   def edit
