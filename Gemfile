@@ -6,6 +6,7 @@ gem 'rest-client'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'carrierwave'
+gem 'fog'
 
 group :development do
   gem 'sqlite3'
