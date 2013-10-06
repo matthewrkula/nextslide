@@ -1,11 +1,13 @@
-.event-image{
-  display: inline-block;
-  img{
+.event-image {
+  float: left;
+
+  img {
     height: 500px;
     width: auto;
   }
+
 }
 
-.event-details{
-  display:inline-block;
+.event-details {
+  float: left;
 }
