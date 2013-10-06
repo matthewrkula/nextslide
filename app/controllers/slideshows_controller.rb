@@ -21,6 +21,14 @@ class SlideshowsController < ApplicationController
     }) 
   end
 
+  def choose
+    Pusher['slideshow'].trigger('choose', {
+      e_id: param[:event_id],
+      ss_id: param[:id]
+    }) 
+    respond_with result: :chosen
+  end
+
   def new
     # @event.slideshows.build
   end
