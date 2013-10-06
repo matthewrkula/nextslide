@@ -1,6 +1,10 @@
 class SlideshowController < ApplicationController
   respond_to :html, :json
 
+  def index
+    @shows = Slideshow.all
+  end
+
   def show
     @ss = Slideshow.find(params[:id])
     respond_with html: @ss
