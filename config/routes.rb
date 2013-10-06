@@ -1,6 +1,8 @@
 DepaulMitHacks::Application.routes.draw do
   root to: 'Overviews#index'
   get 'overviews/trigger' => 'overviews#trigger'
+  get 'slideshow/:id/forward' => 'slideshow#forward'
+  get 'slideshow/:id/backward' => 'slideshow#backward'
   resources :overviews
   match '/upload', to: 'upload#upload'
   match '/submit', to: 'upload#submit', via: 'post'
