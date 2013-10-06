@@ -52,8 +52,12 @@
   }
 }
 
-.event-link:visited{
+.event-link{
   font-size: 1.3em;
   color: black;
   text-decoration: underline;
+
+  &:visited {
+    color: black;
+  }
 }

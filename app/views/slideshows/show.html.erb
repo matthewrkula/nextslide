@@ -147,4 +147,8 @@
   channel.bind('backward', function(data) {
     $('#previous-button').click();
   });
+
+  channel.bind('choose'), function(data) {
+    this.window = "/events/" + data.e_id + "/slideshows/" + data.ss_id;
+  }
 </script>

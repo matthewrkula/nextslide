@@ -23,4 +23,12 @@ class SlideshowController < ApplicationController
     }) 
     respond_with result: :backwarded
   end
+
+  def choose
+    Pusher['slideshow'].trigger('choose', {
+      e_id: param[:event_id],
+      ss_id: param[:id]
+    }) 
+    respond_with result: :chosen
+  end
 end
