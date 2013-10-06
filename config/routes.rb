@@ -1,13 +1,11 @@
 DepaulMitHacks::Application.routes.draw do
+  get '/events/:event_id/slideshows/:id/forward' => 'slideshows#forward'
+  get '/events/:event_id/slideshows/:id/backward' => 'slideshows#backward'
+  resources :events do
+    resources :slideshows
+  end
   root to: 'overviews#index'
-  get 'slideshows/:id/forward' => 'slideshows#forward'
-  get 'slideshows/:id/backward' => 'slideshows#backward'
-  resources :slideshows
-  #get 'slideshow/:id/forward' => 'slideshow#forward'
-  #get 'slideshow/:id/backward' => 'slideshow#backward'
-  #get 'slideshows' => 'slideshow#index'
   resources :overviews
   match '/upload', to: 'upload#upload'
   match '/submit', to: 'upload#submit', via: 'post'
-  #match '/slideshow/:id', to: 'slideshow#show'
 end

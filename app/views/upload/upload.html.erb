@@ -6,15 +6,19 @@
 
 
 <script type="text/javascript">
-filepicker.setKey('A1L2uYLNQCeVShNoHVedBz');
+  filepicker.setKey('A1L2uYLNQCeVShNoHVedBz');
 
-$('#upload').click(function(e){
-    filepicker.pick(function(file){
-      $.post( "/submit", 
-      	{ url: file.url } 
-      ).done(function( data ) {
-      	
-	  });
-    });
-});
+  $('#upload').click(function(e){
+      filepicker.pick(function(file){
+        $.post( "/submit", 
+        { 
+          url: file.url,
+          event_id: <%= @event.id %>,
+          name: ''
+        } 
+        ).done(function( data ) {
+          
+      });
+      });
+  });
 </script>
