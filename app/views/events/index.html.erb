@@ -1,4 +1,4 @@
-<h1>Listing events</h1>
+<h1>Events</h1>
 
 <table>
   <tr>
@@ -17,6 +17,11 @@
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <a href="<%= event_path(event) %>">
+    <div class="event" style="background-image: url('<%= event.image %>'); background-size: cover;">
+        <span class="overlay"><%= event.name %></span>
+    </div>
+  </a>
 <% end %>
 </table>
 
