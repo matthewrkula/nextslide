@@ -1,19 +1,19 @@
 class SlideshowController < ApplicationController
   respond_to :html, :json
 
-	def show
-		@ss = Slideshow.find(params[:id])
+  def show
+    @ss = Slideshow.find(params[:id])
     respond_with html: @ss
-	end
+  end
 
-	def forward
-		Pusher['slideshow'].trigger('forward', {
+  def forward
+    Pusher['slideshow'].trigger('forward', {
       message: 'hello world'
     }) 
     respond_with result: :forwarded
   end
 
-	def backward
+  def backward
     Pusher['slideshow'].trigger('backward', {
       message: 'hello world'
     }) 
