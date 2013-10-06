@@ -42,3 +42,22 @@ a{
     
   }
 }
+
+.before-upload{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-size: 1.2em;
+  //background: #27ae60;
+  border-radius: 8px;
+  input{
+    width: 200px;
+    height: 30px;
+  }
+
+}
+
+.during-upload{
+  display: none;
+}
