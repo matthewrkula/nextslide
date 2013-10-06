@@ -1,22 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @event.image %>
-</p>
-
-<%= link_to 'New SlideShow', new_event_slideshow_path(@event.id) %><br/><br/>
-
-<ul>
-  <% @event.slideshows.each do |slideshow| %>
-    <li><%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %></li>
+<div class="event-image">
+  <% if @event.image %>
+    <%= image_tag @event.image %>
   <% end %>
-</ul>
+</div>
+
+<div class="event-details">
+  <p>
+   <h1><%= @event.name %></h1>
+  </p>
+
+
+  <%= link_to 'New SlideShow', new_event_slideshow_path(@event.id) %><br/><br/>
+
+  <ul>
+    <% @event.slideshows.each do |slideshow| %>
+      <li><%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %></li>
+    <% end %>
+  </ul>
+</div>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
