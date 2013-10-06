@@ -1,5 +1,9 @@
 class SlideshowController < ApplicationController
 
+	def index
+		@shows = Slideshow.all
+	end
+
 	def show
 		@ss = Slideshow.find(params[:id])
 	end

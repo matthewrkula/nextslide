@@ -12,7 +12,9 @@ $('#upload').click(function(e){
     filepicker.pick(function(file){
       $.post( "/submit", 
       	{ url: file.url } 
-      );
+      ).done(function( data ) {
+      	
+	  });
     });
 });
 </script>
