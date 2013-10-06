@@ -1,0 +1,6 @@
+<h1>Slides</h1>
+<ul>
+  <% @slideshow.slides.each do |slide| %>
+    <li><%= link_to "Slide ##{slide.slide_number}", edit_slideshow_slide_path(@slideshow, slide) %></li>
+  <% end %>
+</ul>
