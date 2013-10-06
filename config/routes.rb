@@ -10,7 +10,7 @@ DepaulMitHacks::Application.routes.draw do
     resources :slides, only: [:index, :edit, :update]
   end
 
-  root to: 'overviews#index'
+  root to: 'events#index'
   resources :overviews
   match '/upload', to: 'upload#upload'
   match '/submit', to: 'upload#submit', via: 'post'

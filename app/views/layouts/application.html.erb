@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav id="head">
+    <%= link_to image_tag('logo.png'), root_path %>
+    <ul>
+      <li><%= link_to "Create Event", new_event_path %></li>
+      <li>About</li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
