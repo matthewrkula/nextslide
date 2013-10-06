@@ -30,31 +30,50 @@ class SlideshowsController < ApplicationController
   end
 
   def new
-    # @event.slideshows.build
+    @slideshow = @event.slideshows.build
   end
 
 	def create
-		url = params[:url]
-		event_id = @event.id
-		name = params[:name]
+    @slideshow = @event.slideshows.build(params[:slideshow])
+    if @slideshow.save
+      url = ''
+      if Rails.env.development?
+        url = "http://localhost:3000#{@slideshow.url.url}"
+      else
+        url = @slideshow.url.url
+      end
+      response_object = RestClient.get("http://api.shabz.co/hackathon/get_page_count.php?url=http://docs.google.com/gview?url=#{url}&embedded=true&chrome=false")
+      num_pages = JSON.parse(response_object.body)['num_pages']
 
-		response = RestClient.get("http://api.shabz.co/hackathon/get_page_count.php?url=http://docs.google.com/gview?url=#{url}&embedded=true&chrome=false")
-		num_pages = JSON.parse(response.body)['num_pages']
+      #binding.pry
 
-		ss = Slideshow.new({url: url, slide_num: num_pages, event_id: event_id, name: name})
-		ss.save!
-
-    i = 0
-    while (i < num_pages.to_i) do
-      ss.slides.create!({ slide_number: i + 1 })
-      i = i + 1
+      @slideshow.slide_num = num_pages
+      @slideshow.save
+      i = 0
+      while (i < num_pages.to_i) do
+        ss.slides.create!({ slide_number: i + 1 })
+        i = i + 1
+      end
+      redirect_to event_slideshows_url(@event), notice: 'Created a slideshow successfully.'
+    else
+      render :new
     end
 
-    @slideshow = ss
+		# url = params[:url]
+		# event_id = @event.id
+		# name = params[:name]
 
-		respond_to do |format|
-			format.js
-		end
+
+		#ss = Slideshow.new({url: url, slide_num: num_pages, event_id: event_id, name: name})
+		#ss.save!
+
+
+    #@slideshow = ss
+
+
+		#respond_to do |format|
+			#format.js
+		#end
 	end
 
 private
