@@ -3,7 +3,7 @@
 <% @events.each do |event| %>
   <a href="<%= event_path(event) %>">
     <div class="event" style="background-image: url('<%= event.image %>'); background-size: cover;">
-        <span class="overlay"><%= event.name %></span>
+      <span class="overlay"><%= event.name %></span>
     </div>
   </a>
 <% end %>
