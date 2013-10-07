@@ -1,4 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type='text/javascript'>
   var init = function() {
     var slidesContainer, slides, currentIndex, i, currentZIndex, backStageZIndex, onDeckZIndex, nextButton, previousButton;
@@ -140,7 +139,9 @@
   };
 
   var pusher = new Pusher('64563d909eb060a416d7');
-  var channel = pusher.subscribe('slideshow');
+  var channel = pusher.subscribe('<%= "event-#{@event_id}-slideshow-#{@id}" %>');
+  var channelChoose = pusher.subscribe("slideshow")
+  // var channel = pusher.subscribe("slideshow");
   channel.bind('forward', function(data) {
     $('#next-button').click();
   });
@@ -149,7 +150,7 @@
     $('#previous-button').click();
   });
 
-  channel.bind('choose', function(data) {
+  channelChoose.bind('choose', function(data) {
     window.location = "/events/" + data.e_id + "/slideshows/" + data.ss_id;
   });
 </script>

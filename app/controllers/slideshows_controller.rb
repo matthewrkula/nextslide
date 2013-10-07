@@ -1,5 +1,5 @@
 class SlideshowsController < ApplicationController
-  layout 'plain'
+  layout 'application'
 
   before_filter :setup_event
 
@@ -9,22 +9,26 @@ class SlideshowsController < ApplicationController
 
   def show
     @slideshow = @event.slideshows.find(params[:id])
+    @event_id = params[:event_id]
+    @id = params[:id]
   end
 
   def forward
-    Pusher['slideshow'].trigger('forward', {
+    @channel = "event-#{params[:event_id]}-slideshow-#{params[:id]}"
+    Pusher[@channel].trigger('forward', {
       message: 'hello world'
     }) 
   end
 
   def backward
-    Pusher['slideshow'].trigger('backward', {
+    @channel = "event-#{params[:event_id]}-slideshow-#{params[:id]}"
+    Pusher[@channel].trigger('backward', {
       message: 'hello world'
     }) 
   end
 
   def choose
-    Pusher['slideshow'].trigger('choose', {
+    Pusher["slideshow"].trigger('choose', {
       e_id: params[:event_id],
       ss_id: params[:id]
     }) 
