@@ -1,4 +1,6 @@
 class SlideshowsController < ApplicationController
+  layout 'plain'
+
   before_filter :setup_event
 
   def index
@@ -35,13 +37,7 @@ class SlideshowsController < ApplicationController
 	def create
     @slideshow = @event.slideshows.build(params[:slideshow])
     if @slideshow.save
-      url = ''
-      if Rails.env.development?
-        url = "http://localhost:3000#{@slideshow.url.url}"
-      else
-        url = @slideshow.url.url
-      end
-      response_object = RestClient.get("http://api.shabz.co/hackathon/get_page_count.php?url=http://docs.google.com/gview?url=#{url}&embedded=true&chrome=false")
+      response_object = RestClient.get("http://api.shabz.co/hackathon/get_page_count.php?url=http://docs.google.com/gview?url=#{@slideshow.url.url}&embedded=true&chrome=false")
       num_pages = JSON.parse(response_object.body)['num_pages']
       @slideshow.slide_num = num_pages
       @slideshow.save

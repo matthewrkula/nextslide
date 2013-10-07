@@ -7,19 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav id="head">
     <%= link_to image_tag('logo.png'), root_path %>
     <ul>
       <li><%= link_to "Create Event", new_event_path %></li>
+      <li><%= link_to "Events", new_event_path %></li>
       <li>Another Link</li>
       <li>About Us</li>
     </ul>
   </nav>
-
   <div class="container">
     <%= yield %>
   </div>
-
 </body>
 </html>
