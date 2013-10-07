@@ -18,3 +18,5 @@
 *.swo
 
 /script/s3
+
+/public/uploads
