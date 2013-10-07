@@ -26,7 +26,6 @@ class SlideshowsController < ApplicationController
       e_id: params[:event_id],
       ss_id: params[:id]
     }) 
-    # respond_with result: :chosen
   end
 
   def new
