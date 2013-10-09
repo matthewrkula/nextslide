@@ -23,6 +23,7 @@ end
 group :development, :test do
   gem 'shoulda'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :production do

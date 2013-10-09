@@ -53,6 +53,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faker (1.2.0)
+      i18n (~> 0.5)
     fog (1.15.0)
       builder
       excon (~> 0.25.0)
@@ -187,6 +189,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   factory_girl_rails
+  faker
   fog
   jbuilder
   jquery-rails
