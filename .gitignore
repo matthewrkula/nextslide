@@ -15,9 +15,18 @@
 /tmp
 
 *.swp
+**/*.swp
+*/**.swp
+
 *.swo
+**/*.swo
+*/**.swo
 
 /script/s3
 /script/s3.bat
 
 /public/uploads
+
+*~
+*/**~
+**/*~
