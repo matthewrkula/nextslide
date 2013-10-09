@@ -3,6 +3,8 @@ DepaulMitHacks::Application.routes.draw do
   get '/events/:event_id/slideshows/:id/backward' => 'slideshows#backward'
   get '/events/:event_id/slideshows/:id/choose' => 'slideshows#choose'
 
+  get 'dashboard' => 'dashboard#index'
+
   resources :events do
     resources :slideshows
   end
