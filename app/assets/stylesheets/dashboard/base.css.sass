@@ -4,6 +4,8 @@
 *
   margin: 0
   padding: 0
+  box-sizing: border-box
+  -moz-box-sizing: border-box
 
 html
   height: 100%
@@ -11,12 +13,16 @@ html
 body
   background: #fff
   height: 100%
+  font-size: 14px
+  font-family: 'Arial', sans-serif
 
 #sidebar
   width: 200px
   background: #fff
   height: 100%
   border-right: 1px solid #e0e0e0
+  //position: relative
+  position: fixed
   #sidebar-logo
     font-family: 'Pontano Sans', 'Arial', sans-serif
     font-size: 30px
@@ -35,9 +41,49 @@ body
     padding-top: 15px
     padding-left: 15px
     line-height: 30px
+
+  #sidebar-events-filter
+    height: 50px
+    //padding: 10px
+    border-bottom: 1px solid #e0e0e0
+    input[type='text']
+      border: 1px solid #ccc
+      padding: 3px
+      height: 30px
+      margin: 9px
+      width: 180px
+      //width: 100%
+      font-size: 14px
+
+  #sidebar-events-list
+    overflow: auto
+    position: absolute
+    top: 50px
+    left: 0
+    width: 100%
+    bottom: 0
+    ul
+      li
+        a
+          display: block
+          height: 40px
+          //line-height: 40px
+          text-decoration: none
+          //font-family: 'Arial', sans-serif
+          border-bottom: 1px solid #e0e0e0
+          font-size: 14px
+          padding: 10px 
+          color: #000
+          font-family: 'Open Sans', 'Arial', sans-serif
+
+          &:hover
+            //color: #000
+            background: #eee
     
 
 #main
+  margin-left: 200px
+  background: #eee
   // width: 200px
   // background: #fff
   height: 100%
