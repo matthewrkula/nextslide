@@ -63,8 +63,5 @@ module DepaulMitHacks
       g.test_framework :rspec
       g.fixture_replacement :factory_girl
     end
-
-    config.sass.preferred_syntax = :sass
-    config.sass.style = :nested
   end
 end
