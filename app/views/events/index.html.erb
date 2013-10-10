@@ -1,13 +1,19 @@
-<h1>Events</h1>
-
-<% @events.each do |event| %>
-  <a href="<%= event_path(event) %>">
-    <div class="event" style="background-image: url('<%= event.image %>'); background-size: cover;">
-      <span class="overlay"><%= event.name %></span>
-    </div>
-  </a>
+<%= content_for :page_title do %>
+  <h1>Events</h1>
 <% end %>
 
-<br />
+<%= content_for :top_bar_options do %>
+  <%= link_to '+ New Event', new_event_path, class: 'top-bar-option top-bar-option-green' %>
+<% end %>
 
-<%= link_to 'New Event', new_event_path, class: "event-link" %>
+<div id='events-list'>
+  <% @events.each_with_index do |event, index| %>
+    <%= link_to event_path(event) do %>
+      <div class='event-item<%= ' event-item-last' if (index + 1) % 4 == 0 %>' 
+           style="background-image: url('<%= event.image %>');">
+        <span class='event-item-overlay'><%= event.name %></span>
+      </div>
+    <% end %>
+  <% end %>
+  <div class='clear'><!-- --></div>
+</div>

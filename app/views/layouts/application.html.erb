@@ -2,19 +2,19 @@
 <html>
 <head>
   <title>NextSlide</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', :media => 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav id="head">
+  <nav id='head'>
     <%= link_to image_tag('logo.png'), root_path %>
     <ul>
-      <li><%= link_to "Create Event", new_event_path %></li>
-      <li><%= link_to "Events", events_path %></li>
+      <li><%= link_to 'Create Event', new_event_path %></li>
+      <li><%= link_to 'Events', events_path %></li>
     </ul>
   </nav>
-  <div class="container">
+  <div class='container'>
     <%= yield %>
   </div>
 </body>

@@ -6,50 +6,21 @@
 </head>
 <body>
   <div id='container'>
-    <h1 id='container-title'>Events</h1>
-    <div id='events-list'>
-      <div class='event-item'>
-        <a href='#'>Logistics Hackathon</a>
+    <div id='top-bar'>
+      <div id='top-bar-title'>
+        <%= yield :page_title %>
       </div>
-      <div class='event-item'>
-        <a href='#'>AT&T Mobile Hackathon</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>MHacks</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>HackMIT</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>Logistics Hackathon</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>AT&T Mobile Hackathon</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>MHacks</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>HackMIT</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>Logistics Hackathon</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>AT&T Mobile Hackathon</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>MHacks</a>
-      </div>
-      <div class='event-item'>
-        <a href='#'>HackMIT</a>
-      </div>
+      <div id='top-bar-options'>
+        <%= yield :top_bar_options %>
+      </div>       
       <div class='clear'><!-- --></div>
+    </div>
+    <div id='page-content'>
+      <%= yield %>
     </div>
   </div>
   <!-- 
   <div id='main'>
-    <%= yield %>
   </div>
   -->
 </body>

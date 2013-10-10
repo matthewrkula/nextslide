@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  layout 'dashboard'
+
   # GET /events
   # GET /events.json
   def index

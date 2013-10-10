@@ -1,29 +1,20 @@
-<div class="event-container">
-  <div class="event-image">
-    <% if @event.image %>
-      <%= image_tag @event.image %>
+<%= content_for :page_title do %>
+  <h1><%= @event.name %></h1>
+<% end %>
+
+<%= content_for :top_bar_options do %>
+  <%= link_to 'Back to Events', events_path, class: 'top-bar-option' %>
+  <%= link_to "Edit \"#{@event.name}\"", edit_event_path(@event), class: 'top-bar-option' %>
+  <%= link_to '+ New Slideshow', new_event_slideshow_path(@event), class: 'top-bar-option top-bar-option-green' %>
+<% end %>
+
+<div id='event-container'>
+  <div id='event-slideshows-list'>
+    <% @event.slideshows.each do |slideshow| %>
+      <div class='event-slideshow-item'>
+        <%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %> - 
+        <%= link_to 'Add Notes', slideshow_slides_path(slideshow) %>
+      </div>
     <% end %>
   </div>
-
-  <div class="event-details">
-    <p>
-     <h1><%= @event.name %></h1>
-    </p>
-
-
-    <%= link_to 'New SlideShow', new_event_slideshow_path(@event.id), class: "event-link" %><br/><br/>
-
-    <ul>
-      <% @event.slideshows.each do |slideshow| %>
-        <li>
-          <%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %> - 
-          <%= link_to "Add Notes", slideshow_slides_path(slideshow) %>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to 'Edit', edit_event_path(@event) %> |
-    <%= link_to 'Back', events_path %>
-  </div>
-
-
 </div>
