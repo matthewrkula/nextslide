@@ -8,13 +8,21 @@
   <%= link_to '+ New Slideshow', new_event_slideshow_path(@event), class: 'top-bar-option top-bar-option-green' %>
 <% end %>
 
-<div id='event-container'>
-  <div id='event-slideshows-list'>
-    <% @event.slideshows.each do |slideshow| %>
-      <div class='event-slideshow-item'>
-        <%= link_to slideshow.name, event_slideshow_path(@event, slideshow) %> - 
-        <%= link_to 'Add Notes', slideshow_slides_path(slideshow) %>
-      </div>
+<div id='slideshows-container'>
+  <% if @event.slideshows.empty? %>
+    <div>No slideshows have been uploaded for the event yet.</div>
+  <% end %>
+
+  <div id='slideshows-list'>
+    <% @event.slideshows.each_with_index do |slideshow, index| %>
+      <%= link_to event_slideshow_path(@event, slideshow) do %>
+        <div class='slideshow-item<%= ' slideshow-item-last' if (index + 1) % 4 == 0 %>' 
+             style="background-image: url('<%= slideshow.first_slide_image_url %>');">
+          <a class='slideshow-item-edit-link' href='#'>Edit</a>
+          <span class='slideshow-item-overlay'><%= slideshow.name %></span>
+        </div>
+      <% end %>
     <% end %>
+    <div class='clear'><!-- --></div>
   </div>
 </div>

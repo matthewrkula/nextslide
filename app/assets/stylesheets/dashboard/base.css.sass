@@ -121,3 +121,61 @@ body
       line-height: 40px
       font-size: 13px
       font-family: 'Arial', sans-serif
+    table
+      width: 100%
+      tr
+        td
+          border-bottom: 1px solid #e0e0e0
+        td.table-actions-column
+          width: 180px 
+          padding-left: 5px
+
+#slideshows-list
+  .slideshow-item
+    width: 200px
+    height: 200px
+    float: left
+    background: #e0e0e0
+    margin-right: 20px
+    margin-bottom: 20px
+    background-size: cover
+    position: relative
+    border: 1px solid gray
+    &.slideshow-item-last
+      margin-right: 0
+    .slideshow-item-overlay
+      background: #000000
+      opacity: 0.6
+      color: white
+      position: absolute
+      bottom: 0
+      width: 100%
+      padding: 5px
+      text-align: center
+      box-sizing: border-box
+      font-size: 14px 
+    &:hover
+      cursor: pointer
+      .slideshow-item-overlay
+        opacity: 1.0
+      .slideshow-item-edit-link
+        display: block
+
+.slideshow-item-edit-link
+  position: absolute
+  top: 10px
+  right: 10px
+  width: 40px
+  border: 1px solid #999
+  font-size: 11px
+  height: 20px
+  line-height: 20px
+  border-radius: 2px
+  background: #eee
+  font-weight: bold
+  color: #3d3d3d
+  text-align: center
+  text-decoration: none
+  font-family: 'Arial', sans-serif
+  box-sizing: border-box
+  display: none

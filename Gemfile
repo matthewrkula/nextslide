@@ -8,6 +8,7 @@ gem 'jbuilder'
 gem 'carrierwave'
 gem 'fog'
 gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
+gem 'angularjs-rails'
 
 group :development do
   gem 'sqlite3'
