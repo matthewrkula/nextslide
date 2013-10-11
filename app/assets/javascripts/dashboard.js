@@ -1,2 +1,2 @@
-//= require angular
+//= require jquery
 //= require dashboard/base
