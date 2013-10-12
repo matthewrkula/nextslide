@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: nextslide-development
+  api_key: '693458189359825'
+  api_secret: q67sOYHiLhYZ8WlDYNBT7IsPYzM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: nextslide-development
+  api_key: '693458189359825'
+  api_secret: q67sOYHiLhYZ8WlDYNBT7IsPYzM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: nextslide-development
+  api_key: '693458189359825'
+  api_secret: q67sOYHiLhYZ8WlDYNBT7IsPYzM
+  enhance_image_tag: true
+  static_image_support: false
