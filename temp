@@ -1,0 +1,89 @@
+
+    <div id='slideshows-list'>
+      <% @event.slideshows.each_with_index do |slideshow, index| %>
+        <%= link_to event_slideshow_path(@event, slideshow) do %>
+          <div class='slideshow-item<%= ' slideshow-item-last' if (index + 1) % 4 == 0 %>' 
+               style="background-image: url('<%= slideshow.first_slide_image_url %>');">
+            <a class='slideshow-item-edit-link' href='#'>Edit</a>
+            <span class='slideshow-item-overlay'><%= slideshow.name %></span>
+          </div>
+        <% end %>
+      <% end %>
+      <div class='clear'><!-- --></div>
+    </div>
+
+
+
+
+//    window.onload = function() {
+//      var self = this;
+//      console.log('worked!');
+//      var slideshowsList = document.getElementById('slideshows-list'),
+//          slideshowsListChildren = slideshowsList.children,
+//          slideshowListItems = [],
+//          i, j, 
+//          tempChildren;
+
+//      for (i = 0; i < slideshowsList.children.length; i++) {
+//        if (slideshowsListChildren[i].className == 'slideshow-item')
+//          slideshowListItems.push(slideshowsListChildren[i]);
+//      }
+
+//      for (i = 0; i < slideshowListItems.length; i++) {
+//        (function(_i){
+//          slideshowListItems[_i].onmouseover = function(e) {
+//            tempChildren = slideshowListItems[_i].children;
+
+//            console.log('length: ' + slideshowListItems[_i].children.length);
+
+//            for (j = 0; j < slideshowListItems[_i].children.length; j++) {
+//              if (slideshowListItems[_i].children[j].className == 'edit-link-container')
+//                slideshowListItems[_i].children[j].style.display = 'block';
+//                console.log(slideshowListItems[_i].children[j]);
+//            }
+//          }
+//        })(i);
+//      }
+//    };
+
+
+
+
+
+
+
+window.onload = function() {
+  var self = this;
+
+  var slideshowsList = document.getElementById('slideshows-list'),
+      slideshowsListChildren = slideshowsList.children,
+      slideshowListItems = [],
+      i, j, 
+      tempChildren;
+
+  for (i = 0; i < slideshowsList.children.length; i++) {
+    if (slideshowsListChildren[i].className == 'slideshow-item')
+      slideshowListItems.push(slideshowsListChildren[i]);
+  }
+
+  for (i = 0; i < slideshowListItems.length; i++) {
+    (function(_i){
+      slideshowListItems[_i].onclick = function(e) {
+        tempChildren = slideshowListItems[_i].children;
+        for (j = 0; j < slideshowListItems[_i].children.length; j++) {
+          if (slideshowListItems[_i].children[j].className == 'slideshow-url')
+            window.location.href = slideshowListItems[_i].children[j].innerHTML;
+        }
+      };
+
+      slideshowListItems[_i].onmouseover = function(e) {
+        tempChildren = slideshowListItems[_i].children;
+        for (j = 0; j < slideshowListItems[_i].children.length; j++) {
+          if (slideshowListItems[_i].children[j].className == 'edit-link-container')
+            slideshowListItems[_i].children[j].style.display = 'block';
+        }
+      };
+
+    })(i);
+  }
+};

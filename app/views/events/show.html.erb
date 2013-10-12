@@ -15,13 +15,12 @@
 
   <div id='slideshows-list'>
     <% @event.slideshows.each_with_index do |slideshow, index| %>
-      <%= link_to event_slideshow_path(@event, slideshow) do %>
-        <div class='slideshow-item<%= ' slideshow-item-last' if (index + 1) % 4 == 0 %>' 
-             style="background-image: url('<%= slideshow.first_slide_image_url %>');">
-          <a class='slideshow-item-edit-link' href='#'>Edit</a>
-          <span class='slideshow-item-overlay'><%= slideshow.name %></span>
-        </div>
-      <% end %>
+      <div class='slideshow-item<%= ' slideshow-item-last' if (index + 1) % 4 == 0 %>'
+           style="background-image: url(<%= slideshow.first_slide_image_url %>);">
+        <span class='slideshow-url'><%= event_slideshow_path(@event, slideshow) %></span>
+        <span class='slideshow-item-overlay'><%= slideshow.name %></span>
+        <%= link_to 'Edit', slideshow_slides_path(slideshow), class: 'slideshow-item-edit-link' %>
+      </div>
     <% end %>
     <div class='clear'><!-- --></div>
   </div>

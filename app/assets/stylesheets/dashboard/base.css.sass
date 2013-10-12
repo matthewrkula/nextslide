@@ -141,6 +141,7 @@ body
     background-size: cover
     position: relative
     border: 1px solid gray
+    display: block
     &.slideshow-item-last
       margin-right: 0
     .slideshow-item-overlay
@@ -160,16 +161,20 @@ body
         opacity: 1.0
       .slideshow-item-edit-link
         display: block
+  .slideshow-url
+    display: none
 
-.slideshow-item-edit-link
+a.slideshow-item-edit-link
+  display: none
   position: absolute
   top: 10px
   right: 10px
   width: 40px
-  border: 1px solid #999
-  font-size: 11px
   height: 20px
   line-height: 20px
+  background: green
+  border: 1px solid #999
+  font-size: 11px
   border-radius: 2px
   background: #eee
   font-weight: bold
@@ -178,4 +183,3 @@ body
   text-decoration: none
   font-family: 'Arial', sans-serif
   box-sizing: border-box
-  display: none
