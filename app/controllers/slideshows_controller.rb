@@ -1,6 +1,5 @@
 class SlideshowsController < ApplicationController
-  layout 'application'
-
+  layout :resolve_layout
   before_filter :setup_event
 
   def index
@@ -60,5 +59,14 @@ private
 
   def setup_event
     @event = Event.find(params[:event_id])
+  end
+
+  def resolve_layout
+    case action_name
+    when 'show'
+      'slideshow'
+    else
+      'dashboard'
+    end
   end
 end

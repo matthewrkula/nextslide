@@ -118,7 +118,6 @@
 </script>
 
 <div id='slides-container'>
-
 	<% @slideshow.slide_num.times do |i| %>
     <div>
       <img src="https://docs.google.com/viewer?url=<%= "#{@slideshow.url}&a=bi&pagenumber=#{i+1}&w=1200" %>"/>
@@ -129,18 +128,21 @@
 <a href='#' id='next-button'>Next</a>
 <a href='#' id='previous-button'>Previous</a>
 
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-  // Enable pusher logging - don't include this in production
-  Pusher.log = function(message) {
-    if (window.console && window.console.log) {
-      window.console.log(message);
-    }
-  };
+  <% if !Rails.env.production? %>
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+  <% end %>
 
   var pusher = new Pusher('64563d909eb060a416d7');
   var channel = pusher.subscribe('<%= "event-#{@event_id}-slideshow-#{@id}" %>');
   var channelChoose = pusher.subscribe("slideshow")
+  // TODO ??
   // var channel = pusher.subscribe("slideshow");
   channel.bind('forward', function(data) {
     $('#next-button').click();

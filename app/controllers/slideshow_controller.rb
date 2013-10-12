@@ -1,4 +1,5 @@
 class SlideshowController < ApplicationController
+  layout 'dashboard'
   respond_to :html, :json
 
   def index

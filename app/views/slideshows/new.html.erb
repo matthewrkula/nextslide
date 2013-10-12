@@ -1,13 +1,21 @@
+<%= content_for :page_title do %>
+  <h1>New slideshow</h1>
+<% end %>
+
+<%= content_for :top_bar_options do %>
+  <%= link_to "Back to \"#{@event.name}\"", event_path(@event), class: 'top-bar-option' %>
+<% end %>
+
 <%= form_for [@event, @slideshow] do |f| %>
-  <div class='field'>
+  <div class='form-field'>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class='field'>
+  <div class='form-field'>
     <%= f.label :url %>
     <%= f.file_field :url %>
   </div>
-  <div class='actions'>
+  <div class='form-actions'>
     <%= f.submit 'Save' %>
   </div>
 <% end %>

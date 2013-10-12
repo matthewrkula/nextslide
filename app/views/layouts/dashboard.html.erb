@@ -4,8 +4,9 @@
   <title>Dashboard Design Title</title>
   <%= stylesheet_link_tag 'dashboard' %>
   <%= javascript_include_tag 'dashboard' %>
+  <%= cloudinary_js_config %> 
 </head>
-<body>
+<body id='<%= controller_name.parameterize %>-controller' class='<%= params[:action] %>-action'>
   <div id='container'>
     <div id='top-bar'>
       <div id='top-bar-title'>
