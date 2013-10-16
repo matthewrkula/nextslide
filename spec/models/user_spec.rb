@@ -36,7 +36,6 @@ describe User do
     context 'when the user already exists' do
       context 'when the password is blank' do
         it 'should not require password to be filled out' do
-          # user = create(:user, password: '12345678', password_confirmation: '12345678')
           user = User.create!({
             email: Faker::Internet.email,
             password: '12345678',
@@ -56,6 +55,33 @@ describe User do
           user.should_not be_valid
           user.errors[:password].should include("is too short (minimum is 8 characters)")
         end
+      end
+    end
+  end
+
+  context '#validate_password?' do
+    context 'when new_record? is true' do
+      it 'should return true' do
+        user = create(:user)
+        user.should_receive(:new_record?).and_return(true)
+        user.validate_password?.should be_true
+      end
+    end
+
+    context 'when #password.present? is true' do
+      it 'should return true' do
+        user = create(:user)
+        user.password.should_receive(:present?).and_return(true)
+        user.validate_password?.should be_true
+      end
+    end
+
+    context 'when #password_confirmation.present? is true' do
+      it 'should return true' do
+        user = create(:user)
+        user.password.stub(:present?).and_return(false)
+        user.password_confirmation.should_receive(:present?).and_return(true)
+        user.validate_password?.should be_true
       end
     end
   end

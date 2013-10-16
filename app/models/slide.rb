@@ -3,3 +3,4 @@ class Slide < ActiveRecord::Base
   validates :slide_number, :slideshow_id, presence: true
   belongs_to :slideshow
 end
+
