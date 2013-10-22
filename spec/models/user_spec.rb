@@ -93,4 +93,18 @@ describe User do
       password_confirmation: '123456789'
     }).should be_true
   end
+
+  context '#dont_validate_password?' do
+    it 'should return true when validate_password? returns false' do
+      user = create(:user)
+      user.should_receive(:validate_password?).and_return(false)
+      user.dont_validate_password?.should be_true
+    end
+
+    it 'should return false when validate_password? returns true' do
+      user = create(:user)
+      user.should_receive(:validate_password?).and_return(true)
+      user.dont_validate_password?.should be_false
+    end
+  end
 end
