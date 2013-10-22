@@ -14,7 +14,7 @@ gem 'angularjs-rails'
 group :development do
   gem 'sqlite3'
   gem 'pry-rails'
-  gem 'rb-readline'
+  # gem 'rb-readline'
 end
 
 group :test do

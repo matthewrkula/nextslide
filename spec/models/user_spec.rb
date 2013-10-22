@@ -23,7 +23,9 @@ describe User do
   end
 
   it { should ensure_length_of(:password).is_at_least(8) }
-  it { should have_many :events }
+  it { should have_many(:event_memberships) }
+  it { should have_many(:events).through(:event_memberships) }
+  it { should have_many(:proprietary_events).class_name('Event').with_foreign_key('user_id') }
 
   context 'password presence/length validation' do
     context 'when the user is newly created' do

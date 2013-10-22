@@ -1,4 +1,6 @@
 DepaulMitHacks::Application.routes.draw do
+  get "proprietary_events/index"
+
   get '/events/:event_id/slideshows/:id/forward' => 'slideshows#forward'
   get '/events/:event_id/slideshows/:id/backward' => 'slideshows#backward'
   get '/events/:event_id/slideshows/:id/choose' => 'slideshows#choose'
@@ -10,6 +12,7 @@ DepaulMitHacks::Application.routes.draw do
       resources :users, only: [:show, :create]
       resources :user_api_keys, only: [:create]
       resources :events, only: [:index, :show]
+      resources :proprietary_events, only: [:index, :show]
     end
   end
   

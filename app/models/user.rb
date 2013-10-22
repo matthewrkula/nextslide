@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :password, length: { minimum: 8 }, :if => :validate_password?
   validates :password, confirmation: false, :if => :dont_validate_password?
-  has_many :events
+  has_many :event_memberships
+  has_many :events, through: :event_memberships
+  has_many :proprietary_events, :class_name => 'Event', foreign_key: 'user_id'
 
   def validate_password?
     new_record? || password.present? || password_confirmation.present?
