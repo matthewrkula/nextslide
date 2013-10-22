@@ -33,14 +33,28 @@ describe Api::V1::EventsController do
   end
 
   describe 'GET show' do
-    it 'should respond with 200' do
-      event = create(:event)
+    let!(:event) { create(:event) }
+
+    before(:each) do
       Event.should_receive(:find).with(event.id.to_s).and_return(event)
-      get :show, id: event.id
+      get :show, id: event.id, format: :json
       @parsed_response = JSON.parse(response.body)['response']
-      @parsed_response['id'].should == event.id
-      @parsed_response['name'].should == event.name
-      @parsed_response['image'].should == event.image.url
+    end
+
+    it 'should respond with 200' do
+      response.status.should == 200
+    end
+
+    it 'should assign the appopriate Event object to @event' do
+      assigns(:event).should == event 
+    end
+
+    context 'response object' do
+      it 'should have proper fields' do
+        @parsed_response['id'].should == event.id
+        @parsed_response['name'].should == event.name
+        @parsed_response['image'].should == event.image.url
+      end
     end
   end
 end

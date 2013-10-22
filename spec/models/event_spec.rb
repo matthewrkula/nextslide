@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Event do
-  [ :id, :name, :image, :created_at, :updated_at ].each do |field|
+  [ :id, :name, :image, :user_id, :created_at, :updated_at ].each do |field|
     it { should respond_to field }
   end
 
@@ -9,13 +9,16 @@ describe Event do
     it { should allow_mass_assignment_of field }
   end
 
-  [ :id, :created_at, :updated_at ].each do |field|
+  [ :id, :user_id, :created_at, :updated_at ].each do |field|
     it { should_not allow_mass_assignment_of field }
   end
 
+  it { should belong_to :user }
   it { should have_many :slideshows }
 
-  it { should validate_presence_of :name }
+  [ :name, :user_id ].each do |field|
+    it { should validate_presence_of field }
+  end
 
   context 'image field' do
     it 'should mount the image uploader' do

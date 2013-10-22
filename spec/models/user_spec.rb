@@ -23,6 +23,7 @@ describe User do
   end
 
   it { should ensure_length_of(:password).is_at_least(8) }
+  it { should have_many :events }
 
   context 'password presence/length validation' do
     context 'when the user is newly created' do
