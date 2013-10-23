@@ -4,7 +4,7 @@ describe Api::V1::ProprietaryEventsController do
   render_views
 
   it 'should inherit from BaseController' do
-    Api::V1::ProprietaryEventsController.ancestors.should include(Api::V1::BaseController)
+    subject.class.ancestors.should include(Api::V1::BaseController)
   end
 
   let!(:user) { create(:user) }
