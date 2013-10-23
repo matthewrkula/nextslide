@@ -110,4 +110,22 @@ describe User do
       user.dont_validate_password?.should be_false
     end
   end
+
+  context 'give_event_access_to_user(event, the_user_to_give_access_to)' do
+    # def give_event_access_to_user(event_id, the_user_to_give_access_to)
+    #   proprietary_events.find(event_id).
+    #     create_event_membership_for_user(the_user_to_give_access_to)
+    # end
+    
+    it 'should be implemented securely through namespacing' do
+      user_to_give_access_to = create(:user)
+      user = create(:user)
+      event_to_give_access_to = create(:event, user: user)
+      fake_proprietary_events = [event_to_give_access_to]
+      fake_proprietary_events.should_receive(:find).with(event_to_give_access_to).and_return(event_to_give_access_to)
+      event_to_give_access_to.should_receive(:create_event_membership_for_user).with(user_to_give_access_to)
+      user.should_receive(:proprietary_events).and_return(fake_proprietary_events)
+      user.give_event_access_to_user(event_to_give_access_to, user_to_give_access_to) 
+    end
+  end
 end

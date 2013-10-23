@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   def dont_validate_password?
     !validate_password?
   end
+
+  def give_event_access_to_user(event, the_user_to_give_access_to)
+    proprietary_events.find(event).
+      create_event_membership_for_user(the_user_to_give_access_to)
+  end
 end
