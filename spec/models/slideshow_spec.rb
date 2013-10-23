@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Slideshow do
+
+  # TODO
+  # slide_num field not being validated, yet it is required for a slideshow to function properly.
+  # what do we do in this case? We cannot require it until we save the slideshow object...
+  # this would be possible using some ajax uploader form.
+  # we need to upload the file first, look at how many pages are there using Shabbir's api, 
+  # and then finally...set the slide_num field
+
   [ :id, :slide_num, :url, :created_at, :updated_at, :event_id, :name ].each do |field|
     it { should respond_to field }
   end
@@ -65,10 +73,4 @@ describe Slideshow do
     end
   end
   
-  # TODO
-  # slide_num field not being validated, yet it is required for a slideshow to function properly.
-  # what do we do in this case? We cannot require it until we save the slideshow object...
-  # this would be possible using some ajax uploader form.
-  # we need to upload the file first, look at how many pages are there using Shabbir's api, 
-  # and then finally...set the slide_num field
 end
